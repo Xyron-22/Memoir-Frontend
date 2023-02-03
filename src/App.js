@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import {Container} from '@material-ui/core'
+import Navbar from './components/navbar/navbar';
+import Home from './components/home/home';
+import Auth from './components/auth/auth';
+import PostDetails from './components/PostDetails/postDetails';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
-function App() {
+
+
+
+
+const App = () => {
+  const [user, setUser] = useState(null);
+  const [toggle, setToggle] = useState(false);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}>
+    <BrowserRouter>
+      <Container maxWidth="xl">
+        <Navbar toggle={toggle} setToggle={setToggle} user={user} setUser={setUser}></Navbar>
+        <Routes>
+          <Route path="/" element={<Home setToggle={setToggle} toggle={toggle} user={user} setUser={setUser}/>}></Route>
+          <Route path="/posts" element={<Home setToggle={setToggle} toggle={toggle} user={user} setUser={setUser}/>}></Route>
+          <Route path="/posts/search" element={<Home setToggle={setToggle} toggle={toggle} user={user} setUser={setUser}/>}></Route>
+          <Route path="/posts/:id" element={<PostDetails></PostDetails>}></Route>
+          <Route path="/auth" element={user? <Home setToggle={setToggle} toggle={toggle} user={user} setUser={setUser}/> : <Auth/>}></Route>
+        </Routes>
+      </Container>  
+    </BrowserRouter>
+    </GoogleOAuthProvider>
   );
-}
+};
 
+ 
 export default App;
