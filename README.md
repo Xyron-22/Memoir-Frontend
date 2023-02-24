@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Memoir-Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Memoir Web App
 
-## Available Scripts
+DESCRIPTION
 
-In the project directory, you can run:
+This Web-app is an application built by JavaScript Mastery in order to teach his audience how to build an application of this kind.
+Memoir Web-app is based on Memories Web-app owned and built by JavaScript Mastery.
+Memoir is intended to be built as a practice project in order for this developer's improvement and upskill. 
+The Memoir is the same application as the app stated above. The project that the developer based the Memoir app on is built 10 months prior to it's release.
+Some of the technology used in the app that the Memoir is based on is a bit outdated, Therefore development of Memoir is tweaked and follows the updated technologies used.
+Memoir is a Web-based Social-network application intended to connect it's users.
 
-### `npm start`
+FUNCTIONALITIES
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*Users are able to create a customized account in the server.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*Users can also use their gmail accounts as credential to login if they do not intend to create an account.
 
-### `npm test`
+*Users will not be able to see posts from other users if they are not authenticated/logged in.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*Users who are logged in will be able to post a single image in a single post.
 
-### `npm run build`
+*Users have the ability to like, delete and edit the post they created/uploaded.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*Users can only edit and delete their own posts, the like functionality is suited for all the users.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*Users can open a post by clicking it and see the details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*Details of a post contains comments, creator, message, tags.
 
-### `npm run eject`
+*Upon opening details of a post, recommended posts will also be presented to you based on the tags of the post you opened.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+*Search functionality is also present, users can search by the post's title or tags.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+*Search functionality is case insensitive, therefore users are able to search only with correct spelling.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*Realtime chat feature will be implemented soon.
