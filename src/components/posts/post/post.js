@@ -15,7 +15,7 @@ const Post = (props) => {
     const base64String = Buffer.from(post.selectedFile.data.data).toString("base64");
     const dispatch = useDispatch();
     const history = useNavigate();
-    const [likes, setLikes] = useState([post.likes]);
+    const [likes, setLikes] = useState(post.likes);
 
     const postLike = () => {
         dispatch(likePost(post._id));
@@ -26,7 +26,7 @@ const Post = (props) => {
         }
     };
        
-    
+       
     const Likes = () => {
           if(likes.length > 0) {
               
