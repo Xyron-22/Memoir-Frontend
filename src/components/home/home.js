@@ -36,7 +36,7 @@ const Home = ({user, setUser, toggle, setToggle})  => {
       if(!currentPage || currentPage === 1) {
         dispatch(getPosts());
       };
-    }, [toggle]);
+    }, [toggle, dispatch, currentPage]);
         
       
     const handleKeyDown = (e) => {
@@ -68,7 +68,7 @@ const Home = ({user, setUser, toggle, setToggle})  => {
             <Grid item xs={12} sm={4} md={3}> 
               <AppBar className={classes.appBarSearch} position="static" color="inherit">
                 <TextField name="search" variant='outlined' label="Search Memories" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}></TextField>
-                <MuiChipsInput helperText={tags.length > 0 ? "Double click to edit a chip" : ""} clearInputOnBlur value={tags} onChange={handleChange} style={{margin: "10px 0"}} label="Search Tags" variant="outlined"/>
+                <MuiChipsInput helperText={tags.length > 0 ? "Double click to edit a chip" : ""} clearInputOnBlur value={tags} onChange={handleChange} className={classes.chipInput} label="Search Tags" variant="outlined"/>
                 <Button onClick={searchPost} className={classes.searchButton} color="primary" variant='contained'>Search Post</Button>
               </AppBar>
 
@@ -83,7 +83,7 @@ const Home = ({user, setUser, toggle, setToggle})  => {
               </Grid>
               </Grid>
               </Container>
-              </>) : <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+              </>) : <div className={classes.signInDiv}>
               <Paper elevation={6} className={classes.paper}>
                 <Typography variant='h6' align="center">
                     Please Sign in to Create Post

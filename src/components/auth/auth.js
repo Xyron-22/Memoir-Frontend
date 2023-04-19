@@ -6,7 +6,6 @@ import Input from "./input";
 import {useNavigate} from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
 import {useDispatch} from "react-redux";
-import { useSelector } from 'react-redux';
 import { signUp, signIn} from "../../actions/auth";
 
 const initialState = { firstName: "", lastName: "", email: "", password: "", confirmPassword: ""}
@@ -18,8 +17,7 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState(initialState);
     const dispatch = useDispatch();
-    const auth = useSelector((state) => state.authReducer);
-    
+       
     const handleSubmit = (e) => {
         e.preventDefault();
 

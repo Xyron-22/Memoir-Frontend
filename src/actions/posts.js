@@ -19,6 +19,8 @@ export const getPost = (id) => async (dispatch) => {
 
 export const getPosts = (page) => async (dispatch) => { 
     try {
+        dispatch({ type: START_LOADING }); //
+
         const {data} = await api.fetchPosts(page); 
 
         dispatch({ type: FETCH_ALL, payload: data});
@@ -47,6 +49,8 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
 
 export const createPost = (post, history) => async (dispatch) => { 
     try {
+        dispatch({ type: START_LOADING }); //
+
         const {data} = await api.createPost(post);
 
         history(`/posts/${data._id}`);

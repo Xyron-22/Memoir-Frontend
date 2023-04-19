@@ -20,11 +20,11 @@ const PostDetails = () => {
 
     useEffect(() => {
         dispatch(getPost(id));
-    }, [id]);
+    }, [id, dispatch]);
 
     useEffect(() => {
       dispatch(getPostsBySearch({ search: "none", tags: post?.tags.join(",")}));
-    }, [post]);
+    }, [post, dispatch]);
     
                     
     if(!post) return null;
@@ -44,7 +44,7 @@ const PostDetails = () => {
     };
 
     return (
-        <Paper style={{padding: "20px", borderRadius: "15px"}} elevation={6}>
+        <Paper className={classes.postDetailsPaper} elevation={6}>
             <div className={classes.card}>
             <div className={classes.section}>
               <Typography variant="h3" component="h2">{post.title}</Typography>
@@ -52,11 +52,11 @@ const PostDetails = () => {
               <Typography gutterBottom variant="body1" component="p">{post.message}</Typography>
               <Typography variant="h6">Created by: {post.name}</Typography>
               <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
-              <Divider style={{ margin: '20px 0' }} />
+              <Divider className={classes.divider} />
               <Typography variant="body1"><strong>Realtime Chat - coming soon!</strong></Typography>
-              <Divider style={{ margin: '20px 0' }} />
+              <Divider className={classes.divider} />
               <CommentSection post={post} id={id}></CommentSection>
-              <Divider style={{ margin: '20px 0' }} />
+              <Divider className={classes.divider} />
             </div>
             <div className={classes.imageSection}>
               <img className={classes.media} src={`data:image/png;base64, ${base64String}`} alt={post.title} />
@@ -70,12 +70,12 @@ const PostDetails = () => {
                 {recommendedPost.map(({title, likes, name, selectedFile, _id, message}) => {
                   const otherPost = Buffer.from(selectedFile.data.data).toString("base64")
                   return (
-                  <div style={{ margin: "20px", cursor: "pointer",}} onClick={() => openPost(_id)} key={id}>
+                  <div className={classes.recommendPostDiv} onClick={() => openPost(_id)} key={id}>
                     <Typography gutterBottom variant="h6">{title}</Typography>
                     <Typography gutterBottom variant="subtitle2">{name}</Typography>
                     <Typography gutterBottom variant="subtitle2">{message}</Typography>
                     <Typography gutterBottom variant="subtitle1">{likes.length}</Typography>
-                    <img style={{width: "30%"}} src={`data:img/png;base64, ${otherPost}`} alt="this is an alternative"></img>
+                    <img className={classes.recommendPostImage} src={`data:img/png;base64, ${otherPost}`} alt="this is an alternative"></img>
                   </div>
                   )
                 })}

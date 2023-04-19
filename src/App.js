@@ -4,7 +4,7 @@ import Navbar from './components/navbar/navbar';
 import Home from './components/home/home';
 import Auth from './components/auth/auth';
 import PostDetails from './components/PostDetails/postDetails';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
@@ -17,7 +17,7 @@ const App = () => {
   
   return (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}>
-    <BrowserRouter>
+    <HashRouter>
       <Container maxWidth="xl">
         <Navbar toggle={toggle} setToggle={setToggle} user={user} setUser={setUser}></Navbar>
         <Routes>
@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/auth" element={user? <Home setToggle={setToggle} toggle={toggle} user={user} setUser={setUser}/> : <Auth/>}></Route>
         </Routes>
       </Container>  
-    </BrowserRouter>
+    </HashRouter>
     </GoogleOAuthProvider>
   );
 };

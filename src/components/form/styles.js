@@ -17,5 +17,14 @@ export default makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(),
+    marginBottom: "1rem",
+  },
+  type1: {
+    fontFamily: "Tangerine", 
+    fontSize: "30px", 
+    fontWeight: "bold",
+  },
+  textField1: {
+    margin: "0 0 7px 0",
   },
 }));

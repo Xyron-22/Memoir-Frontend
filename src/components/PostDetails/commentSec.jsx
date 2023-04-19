@@ -29,7 +29,6 @@ const CommentSection = ({post}) => {
         const newComment = await dispatch(commentPost(finalComment, post._id));
         setComments([newComment]);
         setComment("");
-        // commentsRef.current.scrollIntoView({behavior: "smooth"});
     };
     
 
@@ -45,10 +44,10 @@ const CommentSection = ({post}) => {
                     ))}
                     <div ref={commentsRef}/>
                 </div>
-                {user && (<div style={{width: "70%"}}>
+                {user && (<div className={classes.comSecDiv}>
                     <Typography gutterBottom variant="h6">Write a Comment</Typography>
                     <TextField fullWidth minRows={4} variant="outlined" label="Comment" multiline value={comment} onChange={(e) => setComment(e.target.value)}></TextField>
-                    <Button style={{marginTop: "10px"}} fullWidth disabled={!comment} variant="contained" onClick={handleClick} color="primary">Comment</Button>
+                    <Button className={classes.comSecButton} fullWidth disabled={!comment} variant="contained" onClick={handleClick} color="primary">Comment</Button>
                 </div>)}
             </div>
         </div>

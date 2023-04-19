@@ -17,7 +17,7 @@ const Paginate = ({page, currentId, toggle}) => {
         if(page) {
             dispatch(getPosts(page));
         }
-    }, [page, currentId, toggle]);
+    }, [page, currentId, toggle, dispatch]);
 
     return (
         <Pagination classes={{ ul: classes.ul}} count={numberOfPages} page={Number(page)} variant="outlined" color="primary" renderItem={(item) => (<PaginationItem {...item} component={Link} to={`/posts?page=${item.page}`}/>)} ></Pagination>

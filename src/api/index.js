@@ -4,6 +4,8 @@ const {REACT_APP_API_URL, REACT_APP_USER} = process.env;
 
 const API = axios.create({ baseURL: REACT_APP_API_URL });
 
+console.log(REACT_APP_API_URL)
+
 API.interceptors.request.use((req) => {
     if(localStorage.getItem(REACT_APP_USER)) {
         if(JSON.parse(localStorage.getItem(REACT_APP_USER)).credential) {

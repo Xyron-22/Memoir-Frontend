@@ -1,8 +1,5 @@
 import { makeStyles } from "@material-ui/core"
 import { deepPurple } from "@material-ui/core/colors"
-import { width } from "@mui/system"
-import { signIn } from "../../api"
-
 
 export default makeStyles((theme) => ({
     appBar: {
@@ -20,7 +17,6 @@ export default makeStyles((theme) => ({
         fontSize: "4vw",
         textDecorationLine: "none",
         fontFamily: "Tangerine", 
-        fontSize: "5vw",
         marginRight: "2vw",
         fontWeight: "bold"
       },

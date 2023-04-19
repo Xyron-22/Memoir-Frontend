@@ -63,9 +63,9 @@ const Form = ({currentId, setCurrentId, setToggle, toggle, user}) => {
 
         return (
 
-            <Paper style={{marginBottom: "1rem"}} elevation={6} className={classes.paper}>
+            <Paper elevation={6} className={classes.paper}>
                 <form  encType="multipart/form-data" autoComplete='off' noValidate className={classes.form} onSubmit={handleSubmit}>
-                    <Typography variant='h6' style={{fontFamily: "Tangerine", fontSize: "30px", fontWeight: "bold"}}>{currentId ? "Editing a Memory" : "Creating a Memory"}</Typography>
+                    <Typography variant='h6' className={classes.type1}>{currentId ? "Editing a Memory" : "Creating a Memory"}</Typography>
                     
                     <TextField 
                     name='title' 
@@ -74,7 +74,7 @@ const Form = ({currentId, setCurrentId, setToggle, toggle, user}) => {
                     fullWidth
                     value={postData.title}
                     onChange={(e) => setPostData({...postData, title: e.target.value})}
-                    style={{margin: "0 0 7px 0"}}
+                    className={classes.textField1}
                     required>
                     </TextField>
     
@@ -85,7 +85,7 @@ const Form = ({currentId, setCurrentId, setToggle, toggle, user}) => {
                     fullWidth
                     value={postData.message}
                     onChange={(e) => setPostData({...postData, message: e.target.value})}
-                    style={{margin: "0 0 7px 0"}}
+                    className={classes.textField1}
                     required>
     
                     </TextField>

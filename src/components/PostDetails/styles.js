@@ -45,4 +45,24 @@ export default makeStyles((theme) => ({
     overflowY: "auto",
     marginRight: "30px",
   },
+  comSecDiv: {
+    width: "70%",
+  },
+  comSecButton: {
+    marginTop: "10px",
+  },
+  postDetailsPaper: {
+    padding: "20px", 
+    borderRadius: "15px",
+  },
+  divider: {
+    margin: '20px 0',
+  },
+  recommendPostDiv: {
+    margin: "20px", 
+    cursor: "pointer",
+  },
+  recommendPostImage: {
+    width: "30%",
+  },
 }));

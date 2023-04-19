@@ -29,6 +29,13 @@ export default makeStyles((theme)=> ({
         paper: {
           width: "20vw"
         }
-      }
-          
+      },
+      signInDiv: {
+        display: "flex", 
+        justifyContent: "center", 
+        alignItems: "center",
+      },
+      chipInput: {
+        margin: "10px 0",
+      } 
 }));

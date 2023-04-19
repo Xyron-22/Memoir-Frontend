@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBase} from '@material-ui/core';
 import DeleteIcon from '@mui/icons-material/Delete';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -9,26 +9,29 @@ import {Buffer} from "buffer";
 import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from '../../../actions/posts';
 import { useNavigate } from 'react-router-dom';
+import useStyles from "./styles";
+
 
 const Post = (props) => {
     const {post, setCurrentId, user, toggle, setToggle} = props;
     const base64String = Buffer.from(post.selectedFile.data.data).toString("base64");
     const dispatch = useDispatch();
     const history = useNavigate();
+    const classes = useStyles();
     const [likes, setLikes] = useState(post.likes);
-
+  
     const postLike = () => {
         dispatch(likePost(post._id));
-        if (post.likes.find((like) => like === (user?.sub || user?._id))) {
-            setLikes(post.likes.filter((like) => like !== (user?.sub || user?._id)));
+        if (likes.find((like) => like === (user?.sub || user?._id))) {
+            setLikes(likes.filter((like) => like !== (user?.sub || user?._id)));
         } else {
-            setLikes([...post.likes, (user?.sub || user?._id)]);
+            setLikes([...likes, (user?.sub || user?._id)]);
         }
     };
-       
+
        
     const Likes = () => {
-          if(likes.length > 0) {
+          if(likes.length > 0 ) {
               
               return likes.find((like) => like === (user?.sub || user?._id))
               ? (
@@ -51,38 +54,32 @@ const Post = (props) => {
     };
 
     return (
-        <Card raised elevation={6} style={{ 
-        display: "flex", 
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        borderRadius: '15px',
-        height: '100%',
-        position: 'relative'}}>
-            <ButtonBase onClick={openPost} style={{display: "block"}}>
-            <CardMedia style={{height: "200px", objectFit: "cover"}} component="img" src={`data:image/png;base64, ${base64String}`} title={post.title}></CardMedia>
+        <Card raised elevation={6} className={classes.postCard}>
+            <ButtonBase onClick={openPost} className={classes.buttonBase}>
+            <CardMedia className={classes.cardMedia} component="img" src={`data:image/png;base64, ${base64String}`} title={post.title}></CardMedia>
             
-            <div style={{  position: 'absolute',top: '20px',left: '20px',color: 'white',}}>
+            <div className={classes.postFirstDiv}>
                 <Typography variant="h6">{post.name}</Typography>
                 <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
             </div>
             </ButtonBase>
             {(user?._id === post?.creator || user?.sub === post?.creator) && (
-                <div style={{position: 'absolute',top: '20px',right: '5px',color: 'white',}}>
-                <Button style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}>
+                <div className={classes.postSecondDiv}>
+                <Button className={classes.postButton1} size="small" onClick={() => setCurrentId(post._id)}>
                     <MoreHorizIcon fontSize="medium"></MoreHorizIcon>
                 </Button>
             </div>
             )}
-            <ButtonBase onClick={openPost} style={{display: "block"}}>
-            <div style={{display: 'flex',justifyContent: 'space-between',margin: '5px 10px', overflow: "hidden"}}>
+            <ButtonBase onClick={openPost} className={classes.buttonBase}>
+            <div className={classes.postThirdDiv}>
                 <Typography variant="body2" color='textSecondary'>{post.tags.map((tag) => `#${tag}`)}</Typography>
             </div>
-            <CardContent style={{height: "7vh", overflow: "hidden"}}>
-            <Typography style={{display: "flex"}} variant="h4">{post.title}</Typography>
-            <Typography style={{display: "flex", whiteSpace: "pre-line"}} variant="body2" gutterBottom>{post.message.length >= 76 ? `${post.message.slice(0, 75)} ...see more` : post.message}</Typography>
+            <CardContent className={classes.postCardContent}>
+            <Typography className={classes.postTyp1} variant="h4">{post.title}</Typography>
+            <Typography className={classes.postType2} variant="body2" gutterBottom>{post.message.length >= 76 ? `${post.message.slice(0, 75)} ...see more` : post.message}</Typography>
             </CardContent>
             </ButtonBase>
-            <CardActions style={{  padding: '0 16px 8px 16px',display: 'flex',justifyContent: 'space-between',}}>
+            <CardActions className={classes.postCardActions}>
                 <Button size="small" color="primary" disabled={!user} onClick={postLike}>
                     <Likes></Likes>
                 </Button>
