@@ -28,4 +28,10 @@ export default makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     
   },
+  loginInfo: {
+    display: "flex",
+    justifyContent: "center",
+    margin: "7px 0 0 0 ",
+    color: "red",
+  }
 }));

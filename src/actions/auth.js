@@ -1,13 +1,16 @@
-import {AUTH} from "../constants/actionTypes"
+import {AUTH, ERROR} from "../constants/actionTypes"//
 import * as api from '../api/index';
 
 export const signIn = (formData, history) => async (dispatch) => {
     try {
         const { data } = await api.signIn(formData);
-
-        dispatch( { type: AUTH, data});
-
-        history("/");
+        if (data.message === "User does not exist" || data.message === "Invalid Credentials") {//
+            dispatch({type: ERROR, data})
+        } else {
+            dispatch( { type: AUTH, data});
+           
+            history("/");
+        }
     } catch (error) {
         console.log(error);
     }
@@ -16,10 +19,13 @@ export const signIn = (formData, history) => async (dispatch) => {
 export const signUp = (formData, history) => async (dispatch) => {
     try {       
         const {data} = await api.signUp(formData);
-
-        dispatch({type: AUTH, data})
-
-        history("/");
+        if(data.message === "User already exist" || data.message === "Password does not match") {
+            dispatch({type: ERROR, data})
+        } else {
+            dispatch({type: AUTH, data})
+            
+            history("/");
+        }  
     } catch (error) {
         console.log(error);
     }

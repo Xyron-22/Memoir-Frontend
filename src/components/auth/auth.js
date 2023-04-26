@@ -1,11 +1,12 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Avatar, Button, Paper, Grid, Typography, Container } from "@material-ui/core";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import useStyles from "./styles";
 import Input from "./input";
+import {CircularProgress} from "@material-ui/core"//
 import {useNavigate} from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { signUp, signIn} from "../../actions/auth";
 
 const initialState = { firstName: "", lastName: "", email: "", password: "", confirmPassword: ""}
@@ -15,17 +16,26 @@ const Auth = () => {
     const history = useNavigate();
     const [isSignUp, setIsSignUp] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [checkPassword, setCheckPassword] = useState(null);
     const [formData, setFormData] = useState(initialState);
+    const {authData} = useSelector((state) => state.reducer)
+        
     const dispatch = useDispatch();
-       
+
+    useEffect(() => {
+        setCheckPassword(authData?.message)
+    }, [authData])
+
+  
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        
         if (isSignUp) {
             dispatch(signUp(formData, history));
         } else {
             dispatch(signIn(formData, history));
         };
+        setCheckPassword(<CircularProgress></CircularProgress>)
     };
 
     const handleChange = (e) => {
@@ -52,6 +62,8 @@ const Auth = () => {
         console.log(error)
     };
 
+
+
     return (
         <Container component="main" maxWidth="xs">
             <Paper className={classes.paper} elevation={3}>
@@ -73,6 +85,7 @@ const Auth = () => {
                         <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}></Input>
                         { isSignUp && <Input name="confirmPassword" label="Confirm Password" handleChange={handleChange} type="password"></Input>}
                     </Grid>
+                    <div className={classes.loginInfo}>{checkPassword}</div>
                     <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                         { isSignUp ? "Sign up" : "Sign in"}
                     </Button>
