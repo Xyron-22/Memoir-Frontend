@@ -1,5 +1,3 @@
-# Memoir-Frontend
-
 Social Media Web Application for social networking and interaction with great features.
 
 FEATURES:
