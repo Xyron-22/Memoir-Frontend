@@ -1,14 +1,14 @@
-Social Media Web Application for social networking and interaction with great features.
+*Social Media Web Application for social networking and interaction with great features.
 
 FEATURES:
-*Fully responsive (fit for all size of devices)
-*Fully functional and interactive
-*Sign up
-*Sign in/Sign out
-*Sign in using Google account
-*Password encryption
-*Uses JWT(JSON Web Token) for Authentication and Authorization
-*Middleware
+-Fully responsive (fit for all size of devices)
+-Fully functional and interactive
+-Sign up
+-Sign in/Sign out
+-Sign in using Google account
+-Password encryption
+-Uses JWT(JSON Web Token) for Authentication and Authorization
+-Middleware
 -Create, Read, Update, Delete
 -Creating posts
 -Time the post created
