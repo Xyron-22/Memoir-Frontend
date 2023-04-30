@@ -1,10 +1,10 @@
-__Social Media Web App__
+___Social Media Web App___
 
 Dec 2022 - Feb 2023
 
 Social Media Web Application for social networking and interaction with great features.
 
-__FEATURES:__
+___FEATURES:___
 
 -Fully responsive (fit for all size of devices)
 
@@ -48,7 +48,7 @@ __FEATURES:__
 
 -JWT(JSON Web Token) expiration (you'd have to sign in again once expired)
 
-__TECH STACK USED:__
+___TECH STACK USED:___
 
 -HTML
 
