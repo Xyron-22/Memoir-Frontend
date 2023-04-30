@@ -1,19 +1,5 @@
 *Social Media Web Application for social networking and interaction with great features.
 
-
- Markup : * Bullet list
-              * Nested bullet
-                  * Sub-nested bullet etc
-          * Bullet list item 2
-
--OR-
-
- Markup : - Bullet list
-              - Nested bullet
-                  - Sub-nested bullet etc
-          - Bullet list item 2 
-
-
 FEATURES:
 -Fully responsive (fit for all size of devices)
 -Fully functional and interactive
